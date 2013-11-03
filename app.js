@@ -1,6 +1,7 @@
 /*
  * This is the main entry module for our node.js application.
  */
+
 var path = require("path"),
     express = require("express"),
     _ = require("underscore");
@@ -10,10 +11,11 @@ var path = require("path"),
 // the raw HTTP concerns. This block creates an instance of the express
 // server and sets configuration related to our static file server and
 // the handlebar template engine.
+//test testa
 var app = express()
             .set("views", path.join(__dirname, "views"))
             .set("view engine", "hbs")
-            .use(express.static(path.join(__dirname, "public")))
+            .use(express.static(path.join(__dirname, "public")))  
             .use(express.bodyParser());
 
 
@@ -61,7 +63,7 @@ var db = [
     nickname: "Diamond Joe",
     company: "Mayor of Springfield",
     email: "jquimby@springfield.gov"
-  }
+  },
 ];
 
 
@@ -75,6 +77,11 @@ app.get("/", function(req, res) {
 app.get("/contacts", function(req, res) {
   res.render("contactlist", {contacts: db});
 });
+
+app.get("/test", function(req, res) {
+  res.render("test", {contacts: db});
+});
+
 
 app.get("/contacts/:guid", function(req, res) {
   var guid = req.param("guid"),
@@ -94,7 +101,7 @@ app.post("/contacts/:guid", function(req, res) {
   if(record) {
     var formValues = _.pick(req.body, "firstName", "lastName", "nickname", "company", "email");
     _.extend(record, formValues);
-    if(record.nickname = "") {
+    if(record.nickname === "") {
       record.nickname = record.firstName;
     }
     res.redirect("/contacts");
