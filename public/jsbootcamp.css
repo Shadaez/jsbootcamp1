@@ -10,3 +10,7 @@ thead {
   background-color: #ffffff;
   padding: 5px;
 }
+
+.hidden {
+  display: none;
+}
