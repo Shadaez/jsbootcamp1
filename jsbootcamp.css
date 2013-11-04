@@ -5,3 +5,8 @@ body {
 thead {
   background-image: url(images/wild_flowers.png);
 }
+
+.form {
+  background-color: #dedede;
+  padding: 5px;
+}

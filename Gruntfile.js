@@ -93,12 +93,3 @@ module.exports = function(grunt) {
     grunt.registerTask('heroku', ['copy']) //wip
     grunt.registerTask('server', ['nodemon'])
 };
-/*
-grunt heroku
-
-
-/dist
-/dist/public/*
-/
-
-*/
